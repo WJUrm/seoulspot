@@ -30,6 +30,8 @@ h4{font-size:32px;}
     font-weight: bold;
 }
 h5{font-size:28px;}
+#related-events h3{font-size: 28px;}
+#related-events h5{font-size: 24px;}
 .gsap-marker-start,
 .gsap-marker-end,
 .gsap-marker-scroller-end,
@@ -217,14 +219,22 @@ header ul li:first-child{padding-left:0px;}
 .section1-text button a{padding-top: 0px;}
 #section1 .section-inner{margin-top:100px;}
 #section1 h3{margin-top:40px; font-size:40px;}
-#section1 .contents{margin-top:10px;min-height:400px;justify-content: space-between; position: relative;}
+#section1 .contents{
+    margin-top:10px;
+    min-height:400px;
+    justify-content: space-between; 
+    position: relative;
+}
 #section1 .contents img{
     height:400px;
     position: absolute;
     top: 0;
     right: 0;
 }
-.flex{display:flex;}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
 .card {
     padding: 40px;
     display: flex;
