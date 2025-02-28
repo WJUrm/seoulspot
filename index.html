@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeoulSpots</title>
+    <link rel="stylesheet" href="master.css">
+    <style>
+        .scrollTop {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            z-index: 1000;
+            width: 40px;
+            height: 40px;
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+            line-height: 40px;
+            background-color: rgba(0, 0, 0, 0.6);
+            display:none;
+        }
+        .fixed {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        /*section{
+            scroll-behavior: smooth;
+        }*/
+        .hero {
+        background-color: #fff;
+        }
+        .hero__background {
+        position: absolute;
+        z-index: 1;
+        top: 0%;
+        height: 0%;
+        width: 100%;
+        background: #090e18;
+        }
+        .hero__top {
+        position: relative;
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        }
+        .hero__top h1 {
+        color: #090e1f;
+        font-size: 80px;
+        line-height: 1.1;
+        margin-bottom: 32px;
+        max-width: 600px;
+        z-index: 3;
+        position: relative;
+        }
+        @media (max-width: 960px) {
+        .hero__top h1 {
+            font-size: 32px;
+        }
+        }
+        .hero__top p {
+        mix-blend-mode: difference;
+        color: rgba(255, 255, 255, 0.6);
+        max-width: 500px;
+        margin: 0 auto;
+        font-size: 18px;
+        z-index: 3;
+        position: relative;
+        }
+        .hero__bottom {
+        height: 60vh;
+        }
+        .hero__bottom img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        }
+        .about {
+        background-color: #fff;
+        }
+        .about__item {
+        display: inline-block;
+        width: 700px;
+        padding: 0px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        }
+        /*.about__item:nth-child(odd) img {
+        margin-bottom: 64px;
+        }*/
+        .about__item:nth-child(even) {
+        flex-direction: column-reverse;
+        margin-bottom: 300px;
+        }
+        .about__item img {
+        object-fit: cover;
+        height: 500px;
+        width: 500px;
+        cursor: pointer;
+        }
+        .about__item .content {
+        /*height: 50%;*/
+        max-width: 500px;
+        /*flex: 1;*/
+        display: flex;
+        align-items: center;
+        }
+        .about__item .content h3 {
+        font-size: 32px;
+        max-width: 500px;
+        line-height: 1.2;
+        }
+        .about__item .content p {
+        max-width: 350px;
+        margin-top: 8px;
+        }
+
+        .horizontal-scroll__section {
+        position: relative;
+        height: 350vh;
+        }
+        .horizontal-scroll__wrapper {
+        position: sticky;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        }
+        .horizontal-scroll__title{
+            height: 5vh;
+            padding-top: 10vh;
+        }
+        .horizontal-scroll__content {
+        display: flex;
+        padding: 80px;
+        height: 100vh;
+        width: 350vh;
+        will-change: transform;
+        }
+
+        .extra-section {
+        height: 200vh;
+        background-color: #020407;
+        }
+        /**/
+        html {
+            overflow-x: hidden;
+        }
+        .blind{position:absolute !important;left:-9999px;
+            width:1px;height:1px;font-size:0;line-height:0;overflow:hidden;
+            /* opacity:0;filter:alpha(opacity=0); ☆Naver */
+        }
+        caption.blind{position:relative;}
+        .blind.onshow:focus{
+            display:block;
+            position:relative !important;
+            left:auto;width:auto;height:auto;
+            margin:0 0 1em;padding:.5em 1em;background:#ee0;color:#850;
+            font-size:1em;line-height:normal;overflow:hidden;
+        }
+        #mainbody1 .f1{width:250px; height:160px; overflow:hidden;}
+        #mainbody1 .f1 img{width:230px;}
+        .large{display:block; width:700px;}
+        .width20{display:block; width:300px;}
+        .fdc{flex-direction: column;}
+        .jcsb{justify-content: space-between;}
+        #mainbody2 .view1list{margin:0 auto;}
+        /**/
+        #section1{
+            height: calc(100vh - 80px) !important;
+            max-height: calc(100vh - 80px) !important;
+            padding: 20px 0 !important;
+        }
+        .extra-padding{
+            width: 88%;
+            margin: 0 auto;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="all.css">
+
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="jquery.easing.1.3.js"></script>
+    <script src="script_scroll1section3.js"></script>
+
+</head>
+<body>
+    <div class="scrollTop"></div>
+    <header>
+        <div class="container">
+            <ul>
+                <li><a href="#">Visit Seoul</a></li>
+                <li><a href="#">Invest in Seoul</a></li>
+                <li><a href="#">Study Seoul</a></li>
+                <li><a href="#">Retire in Seoul</a></li>
+                <li><a href="#">Customer Rights</a></li>
+            </ul>     
+        </div>
+        <div class="header-second">
+            <a href="#"><img src="images/SLogo-w.svg" style="height:32px;"></a>
+        </div>
+    </header>
+    <noscript><p class="noscript">JavaScript has been disabled. This site requires JavaScript for full functionality, please enable.</p></noscript>
+    <section id="section0" class="parallax__item" style="position:relative; height:1080px">
+        <div class="c-video-intro js-video-intro">
+            <div class="c-video-intro__wrapper">
+                <div class="c-video-intro__video">
+                    <video playsinline autoplay muted loop>
+                        <source src="video01.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+        <div class="section1-inner">
+            <div class="section1-text">
+                <h1>Seoul - the capital of South Korea</h1>
+                <p>
+                    Seoul, city and capital of South Korea (the Republic of Korea). It is located on the Han River (Han-gang) in the northwestern part of the country, with the city center some 37 miles (60 km) inland from the Yellow Sea (west). Seoul is the cultural, economic, and political center of South Korea.
+                </p>
+                <div class="flex">
+                    <div>
+                        <button><a href="#mainbody1"><img src=images/place-white.png></a></button>
+                        <a href="#mainbody1">Must-Visit Tourist Spots</a>
+                    </div>
+                    <div>
+                        <button><a href="#related-events"><img src=images/event-white.png style="scale:0.7;"></a></button>
+                        <a href="#related-events">Related Events</a>
+                    </div>
+                    <div>
+                        <button><a href="#section1"><img src=images/Seoul_districts-white.svg style="scale:0.9;"></a></button>
+                        <a href="#section1">Seoul's Districts</a>
+                    </div>
+                    <div>
+                        <button><a href="#section2"><img src=images/Tteokbokki-white.png style="scale:1;"></a></button>
+                        <a href="#section2">Food</a>
+                    </div>
+                    <div>
+                        <button><a href="#section3"><img src=images/flare-white.svg style="scale:0.9;"></a></button>
+                        <a href="#section3">Festivals</a>
+                    </div>
+                    <div>
+                        <button><a href="#section4"><img src=images/document_info_white.svg style="scale:0.9;"></a></button>
+                        <a href="#section4">Information</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="wrap">
+        <!-- container -->
+        <div class="container clearfix">
+        <!-- #body -->
+        <div id="body" tabindex="-1" class="init">
+        <!-- #mainbody1 -->				
+        <div id="mainbody1" class="mainbody1 on" style="/* display: none; */height: 964px;">
+          <div class="container">
+            <h2 class="st1"><span class="t1">Must-Visit Tourist Spots</span></h2>
+            <p class="st2"> The charming city of Seoul <br>invites you.</p>
+            <!-- go1section1 -->
+            <ol id="go1section1" class="spot1list">
+              <li class="blind on"><a href="https://www.visitseoul.net/"><span>꼭 방문해야 할 곳 리스트</span></a></li>
+              <li>
+                <a href="#mainbody2">
+                  <span class="f1"><img src="images/must-visit-01.png" alt="서울 5대 고궁"></span>
+                  <p class="wrap"><span class="text"><span class="t1"><em class="stit" style="margin-top: 20px;">1. </em><em class="stxt">The Five Royal Palaces of Seoul</em></span></span></p>
+                </a>
+              </li>
+              <li>
+                <a href="#mainbody3">
+                  <span class="f1"><img src="images/must-visit-10.jpg" alt="명동쇼핑거리"></span>
+                  <p class="wrap"><span class="text"><span class="t1"><em class="stit">2.</em><em class="stxt">Myeongdong Shopping Street</em></span></span></p>
+                </a>
+              </li>
+              <li>
+                <a href="#mainbody4">
+                  <span class="f1"><img src="images/must-visit-04.jpg" alt="동대문디자인프라자"></span>
+                  <p class="wrap"><span class="text"><span class="t1"><em class="stit" style="margin-top: 20px;">3.</em><em class="stxt">Dongdaemun Design Plaza (DDP)</em></span></span></p>
+                </a>
+              </li>
+              <li>
+                <a href="#mainbody5">
+                  <span class="f1"><img src="images/must-visit-06.png" alt="N서울타워"></span>
+                  <p class="wrap"><span class="text"><span class="t1"><em class="stit">4.</em><em class="stxt">N Seoul Tower</em></span></span></p>
+                </a>
+              </li>
+              <li>
+                <a href="#mainbody6">
+                  <span class="f1"><img src="images/must-visit-03.jpg" alt="서울숲"></span>
+                  <p class="wrap"><span class="text"><span class="t1"><em class="stit">5.</em><em class="stxt">Seoul Forest</em></span></span></p>
+                </a>
+              </li>
+              <li>
+                <a href="#mainbody7">
+                  <span class="f1"><img src="images/must-visit-09.jpg" alt="코엑스"></span>
+                  <p class="wrap"><span class="text"><span class="t1"><em class="stit">6.</em><em class="stxt">COEX (Starfield)</em></span></span></p>
+                </a>
+              </li>
+            </ol>
+            <!-- go1section1 //-->
+          </div>
+          <a href="#mainbody2" class="mousewheel1 scroll1down1 mouse1" title="1 섹션으로 이동"><span class="t1">scroll down</span></a>
+        </div>
+        <!-- #mainbody1 //-->				
+        
+        <!-- #mainbody2 -->
+        <div id="mainbody2" class="mainbody2" style="height: 964px;">
+          <div class="container">
+            <h2 class="ht1"><span class="sst1">1</span><span class="sst2">The Five Royal Palaces of Seoul</span></h2>
+            <!-- view1list -->
+            <div class="view1list flex jcsb">
+                <div class="flex fdc jcsb">
+                    <span class="f1 width20"><img src="images/Changdeokgung00.jpg" alt="창덕궁"></span>
+                    <span class="f1 width20"><img src="images/Gyeonghuigung00.jpg" alt="경희궁"></span>
+                </div>
+                <div><span class="f1 large"><img src="images/Gyeongbokgung00.png" alt="경복궁"></span></div>
+                <div class="flex fdc jcsb">
+                    <span class="f1 width20"><img src="images/Deoksugung00.jpg" alt="덕수궁"></span>
+                    <span class="f1 width20"><img src="images/Changgyeonggung.png" alt="창경궁"></span>
+                </div>
+            </div>
+                <div class="view1text">
+                  <p class="ct1">Enjoy special programs!<span class="sec"></span></p>
+                  <p class="t2">Starlight Tour, Moonlight Tour<a href="https://english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=201117" target="_blank" title="새창열림" class="b1 more hidden"><span class="blind">5대 고궁 자세히보기</span></a></p>
+                  
+                </div>
+            </div>
+            <!-- view1list //-->
+            <a href="#mainbody3" class="mousewheel1 scroll1down1 mouse1" title="명동 섹션으로 이동"><span class="t1">scroll down</span></a>
+        </div>
+        <!-- #mainbody2 //-->
+        
+        <!-- #mainbody3 -->
+        <div id="mainbody3" class="mainbody3" style="height: 964px;">
+          <div class="container">					
+            <h2 class="ht1"><span class="sst1">2</span><span class="sst2">Myeongdong Shopping Street</span></h2>
+            <!-- view1text -->
+            <div class="view1text">
+              <p class="ct1">Discover Korea’s Trendiest Shopping Street</p>
+              <p class="t2">If you're a fashion lover or a beauty enthusiast, <span class="sec">Myeongdong is your paradise!</span></p>
+              <a href="https://stg-english.visitkorea.or.kr/svc/contents/contentsView.do?dataSetId=122&menuSn=929&&vcontsId=194750" target="_blank" title="새창열림" class="b1 more hidden"><span class="blind">명동 쇼핑 거리 자세히보기</span></a>
+            </div>
+            <!-- view1text //-->
+            <!-- view2list -->
+            <ul class="view2list">
+              <li><span class="f1"><img src="images/md00.png" alt="명동쇼핑센터"></span></li>
+              <li><span class="f1"><img src="images/md01.png" alt="sappun"></span></li>
+              <li><span class="f1"><img src="images/md02.png" alt="rosak"></span></li>
+            </ul>
+            <!-- view2list //-->
+          </div>
+          <a href="#mainbody4" class="mousewheel1 scroll1down1 mouse1" title="동대문 섹션으로 이동"><span class="t1">scroll down</span></a>
+        </div>
+        <!-- #mainbody3 //-->
+        
+        <!-- #mainbody4 -->
+        <div id="mainbody4" class="mainbody4" style="height: 964px;">
+          <div class="container">
+            <h2 class="ht1"><span class="sst1">3</span><span class="sst2">Dongdaemun Design Plaza (DDP)</span></h2>
+            <!-- view3list -->
+            <ul class="view3list">
+              <li>
+                <div class="view1text">
+                  <p class="ct1">'Amazing! Tomorrow’, <span class="sec">Welcome to Dongdaemun Design Plaza (DDP)</span></p>
+                  <p class="t2">Holding more than 100 exhibitions and events annually<span class="sec"></span></p>
+                  <a href="#" target="_blank" title="새창열림" class="b1 more hidden"><span class="blind">동대문 디자인 플라자 자세히보기</span></a>									
+                </div>
+              </li>
+              <li>
+                <span class="f1"><img src="images/ddpshow02.jpg" alt="쇼"></span>
+              </li>
+            </ul>
+            <!-- view3list //-->
+          </div>
+          <a href="#mainbody5" class="mousewheel1 scroll1down1 mouse1" title="N서울타워 섹션으로 이동"><span class="t1">scroll down</span></a>
+        </div>
+        <!-- #mainbody4 //-->
+        
+        <!-- #mainbody5 -->
+        <div id="mainbody5" class="mainbody5" style="height: 964px;">
+          <div class="container">
+            <h2 class="ht1"><span class="sst1">4</span><span class="sst2">N Seoul Tower</span></h2>
+            <!-- view4list -->
+            <ul class="view4list">
+              <li><span class="f1"><img src="images/nt-01.jpg" alt="N서울타워풍경1"></span></li>
+              <li><span class="f1"><img src="images/nt-02.jpg" alt="N서울타워풍경2"></span></li>
+              <li><span class="f1"><img src="images/nt-03.png" alt="N서울타워풍경3"></span></li>
+              <li><span class="f1"><img src="images/nt-04.png" alt="N서울타워풍경4"></span></li>
+            </ul>
+            <!-- view4list //-->
+            <!-- view1text -->
+            <div class="view1text">
+              <p class="ct1">The First Multifunctional Tower in Korea</p>
+              <p class="t2">It’s a symbol of the city’s beauty and culture.<span class="sec">At night, N Seoul Tower transforms into a glowing beacon that defines the Seoul skyline!</span></p>
+              <a href="#" target="_blank" title="새창열림" class="b1 more hidden"><span class="blind">N 서울 타워 자세히보기</span></a>
+            </div>
+            <!-- view1text //-->
+          </div>
+          <a href="#mainbody6" class="mousewheel1 scroll1down1 mouse1" title="서울숲 섹션으로 이동"><span class="t1">scroll down</span></a>
+        </div>
+        <!-- #mainbody5 //-->
+        
+        <!-- #mainbody6 -->
+        <div id="mainbody6" class="mainbody6" style="height: 964px;">
+          <div class="container">
+            <h2 class="ht1"><span class="sst1">5</span><span class="sst2">Seoul Forest</span></h2>
+            <!-- view1list -->
+            <ul class="view1list">
+              <li><img src="images/sf03.png" alt="서울숲 1"></li>
+              <li><img src="images/sf04.png" alt="서울숲 2"></li>
+              <li><img src="images/sf05.png" alt="서울숲 3"></li>
+              <li>
+                <div class="view1text">
+                  <p class="ct1">A Serene Urban Park<span class="sec"> in The Heart of The City</span></p>
+                  <p class="t2">A peaceful sanctuary in the middle of the city.</p>
+                  <a href="#" target="_blank" title="새창열림" class="b1 more hidden"><span class="blind">서울숲 자세히보기</span></a>
+                </div>
+              </li>
+            </ul>
+            <!-- view1list //-->
+          </div>
+          <a href="https://www.namhae.go.kr/tour/tourspot.web#mainbody7" class="mousewheel1 scroll1down1 mouse1" title="COEX 섹션으로 이동"><span class="t1">scroll down</span></a>
+        </div>
+        <!-- #mainbody6 //-->
+        
+        <!-- #mainbody7 -->
+        <div id="mainbody7" class="mainbody7" style="height: 964px;">
+          <div class="container">
+            <h2 class="ht1"><span class="sst1">6</span><span class="sst2">COEX</span></h2>
+            <!-- view1text -->	
+            <div class="view1text">
+              <p class="ct1">(COEX, COnvention & EXhibition)</p>
+              <p class="t2">A Premier Business <span class="sec">and Entertainment Complex </span>in Seoul</p>
+              <a href="#" target="_blank" title="새창열림" class="b1 more hidden"><span class="blind">COEX 자세히보기</span></a>
+            </div>
+            <!-- view1text //-->	
+        
+            <!-- view2list -->
+            <ul class="view2list">
+              <li><span class="f1"><img src="images/coex01.jpg" alt="코엑스 사진 1"></span></li>
+              <li><span class="f1"><img src="images/coex02.jpg" alt="코엑스 사진 2"></span></li>
+              <li><span class="f1"><img src="images/coex03.png" alt="코엑스 사진 3"></span></li>
+            </ul>
+            <!-- view2list //-->
+        </div>
+        </div>
+        <!-- #mainbody7 //-->
+    
+
+        </div>
+        <!-- /#body -->
+        </div>
+        <!-- /container -->
+    </div>
+        <!-- /#wrap -->
+    <section class="about horizontal-scroll__section" id="related-events" style="background: #333; color: white;">
+        <div class="horizontal-scroll__wrapper">
+            <div class="horizontal-scroll__title"><div class="extra-padding"><h4>Related Events</h4></div></div>
+            <div class="horizontal-scroll__content">
+                <div class="about__item">
+                    <img
+                        src="images/event01.png"
+                    />
+                    <div class="content">
+                        <div>
+                            <h3>2025 SEOUL SPRING FESTA</h3>
+                            <p>Apr 30, 2025 ~ May 06, 2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__item">
+                    <img
+                        src="images/SPOEX2025-01.jpg"
+                    />
+                    <div class="content">
+                        <div>
+                        <h5>Seoul International Sports & Leisure Industry Show(SPOEX2025)</h5>
+                        <p>Mar 27, 2025 ~ Mar 30, 2025
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__item">
+                    <img
+                        src="images/KIMES-2025-02.jpg"
+                    />
+                    <div class="content">
+                        <div>
+                            <h5>40th Korea Int’l Medical & Hospital Equipment Show</h5>
+                        <p>
+                            Mar 20, 2025 - Mar 23, 2025
+                        </p>
+                        </div>
+    
+                    </div>
+                </div>
+                <div class="about__item">
+                    <img
+                        src="images/ddp-01.jpg"
+                    />
+                    <div class="content">
+                        <div>
+                            <h3>DDP Architecture Tour</h3>
+                        <p>
+                            Jan 1, 2025 - Dec 31, 2025
+                        </p>
+                        </div>
+    
+                    </div>
+                </div>
+                <div class="about__item">
+                    <img
+                        src="images/ddp-02.png"
+                    />
+                    <div class="content">
+                        <div>
+                            <h3>Immersive-K</h3>
+                        <p>
+                            Aug 15, 2024 ~ Apr 30, 2025
+                        </p>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="section1">
+        <div class="section-inner">
+            <div class="contents flex">
+                <div class="card">
+                    <div>
+                        <h4 class="Central">Central Area - The Heart of Seoul:</h4>
+                        <h4 class="Northwestern">Northwestern Area - Cultural Hot Spot:</h4>
+                        <h4 class="Northeastern">Northeastern Area - Academia & Nature Respite:</h4>
+                        <h4 class="Southwestern">Southwestern Area - Economy & Innovation Hub:</h4>
+                        <h4 class="Southeastern">Southeastern Area - Naturesque Urban Blend:</h4>
+                        <span class="Central">Jongno-gu, Jung-gu, Yongsan-gu</span>
+                        <span class="Northwestern">Mapo-gu, Eunpyeong-gu, Seodaemun-gu</span>
+                        <span class="Northeastern">Dobong-gu, Nowon-gu, Gangbuk-gu, Seongbuk-gu, Jungnang-gu, Dongdaemun-gu, Seongdong-gu, Gwangjin-gu</span>
+                        <span class="Southwestern">Yeongdeungpo-gu, Dongjak-gu, Gwanak-gu, Geumcheon-gu, Gangseo-gu, Yangcheon-gu, Guro-gu</span>
+                        <span class="Southeastern">Seocho-gu, Gangnam-gu, Songpa-gu, Gangdong-gu</span>
+                    </div>
+                    <p class="Central">At the heart of Seoul, you can find historic landmarks, such as Gyeongbokgung Palace, that coexist alongside modern shopping hubs like Myeongdong. Rich in cultural and artistic assets, this area also serves as South Korea's economic and financial center, bustling with business activities. The concentration of major tourist attractions makes it a perennial destination for visitors.</p>
+                    <p class="Northwestern">The area is alive with youth culture and innovation, with Hongdae Street buzzing with young people's energy and creativity. This area is a hub for street performances, art exhibitions, and diverse cultural events, fostering a continuous exchange of cultural inspiration. Here, nature and the urban environment blend seamlessly, providing numerous relaxing spaces, like Ansan Jarak-gil and more.</p>
+                    <p class="Northeastern">As the center of education and academia, it houses several universities. Alongside vibrant local markets like Cheongnyangni Market, this area is bustling with economic activity. Natural retreats, like Bukhansan Mountain, are nearby, allowing residents and visitors to enjoy nature within the city. The area also features various cultural spaces that offer a unique mix of vintage and modernity.</p>
+                    <p class="Southwestern">These districts serve as business and financial hubs, with Yeongdeungpo and Yeouido at its heart. It is densely populated with corporate offices in high-rise buildings and offers the convenience of numerous large shopping malls. Additionally, beautiful natural spaces, like one of the many Hangang Park locations, provide opportunities for leisurely relaxation amid the bustling city.</p>
+                    <p class="Southeastern">You'll notice scenic natural landscape connected to the Hangang River, seamlessly integrated with various cultural facilities. The areas around Samseong-dong and Gangnam Station are major shopping and entertainment hubs, maintaining a vibrant atmosphere even at night. Well-equipped sports and leisure facilities and parks, such as the Jamsil Sports Complex and Olympic Park, offer a perfect spot for enjoying a wide range of recreational activities.</p>
+                    <ul class="Central">
+                        <li><a href="#">Gyeongbokgung Palace</a></li>
+                        <li><a href="#">Gwanghwamun</a></li>
+                        <li><a href="#">Namsan Seoul Tower</a></li>
+                        <li><a href="#">Myeongdong Street</a></li>
+                    </ul>
+                    <ul class="Northwestern">
+                        <li><a href="#">Red Road, Hongdae Fashion Street</a></li>
+                        <li><a href="#">Oil Tank Culture Park</a></li>
+                        <li><a href="#">Eunpyeong Hanok Village</a></li>
+                        <li><a href="#">Haneul Park</a></li>
+                    </ul>
+                    <ul class="Northeastern">
+                        <li><a href="#">Seongsu-dong</a></li>
+                        <li><a href="#">Gyeongdong Market</a></li>
+                        <li><a href="#">Seoul Forest</a></li>
+                        <li><a href="#">Bugak Palgakjeong</a></li>
+                        <li><a href="#">Dream Forest</a></li>
+                    </ul>
+                    <ul class="Southwestern">
+                        <li><a href="#">63 Square</a></li>
+                        <li><a href="#">The Hyundai Seoul</a></li>
+                        <li><a href="#">Times Square</a></li>
+                    </ul>
+                    <ul class="Southeastern">
+                        <li><a href="#">Seonjeongneung</a></li>
+                        <li><a href="#">Banpo Bridge Moonlight Rainbow Fountain</a></li>
+                        <li><a href="#">Starfield Library</a></li>
+                        <li><a href="#">Starfield Coex Mall</a></li>
+                        <li><a href="#">Lotte World Tower</a></li>
+                    </ul>
+                </div>
+                <div class="district_images">
+                    <img src="images/seoul-normal.PNG" style="z-index:-1;">
+                    <img class="Central2" src="images/seoul-district.PNG">
+                    <img class="Northwestern2" src="images/seoul-district02.PNG">
+                    <img class="Northeastern2" src="images/seoul-district03.PNG">
+                    <img class="Southwestern2" src="images/seoul-district04.PNG">
+                    <img class="Southeastern2" src="images/seoul-district05.PNG">
+                </div>
+            </div>
+        </div>
+        <div class="destinations__tabSwiper__section">
+            <div class="destinations__tabSwiper__menu ">
+                <div class="swiper js-tabSwiper-menu swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
+                    <div class="swiper-wrapper" id="swiper-wrapper-2035c70ca4e8dbd1" aria-live="polite">
+                        <div class="swiper-slide swiper-slide-active is-selected" role="group" aria-label="1 / 7" style="margin-right: 14px;">
+                            <div class="tabMenu js-tabMenu1">
+                                <span class="d-day bold"> Recommended Course </span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 7" style="margin-right: 14px;">
+                            <div class="tabMenu js-tabMenu1">
+                                <span> Attractions </span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" role="group" aria-label="4 / 7" style="margin-right: 14px;">
+                            <div class="tabMenu js-tabMenu1">
+                                <span> Accommodations </span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" role="group" aria-label="5 / 7" style="margin-right: 14px;">
+                            <div class="tabMenu js-tabMenu1">
+                                <span> Shopping </span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" role="group" aria-label="7 / 7" style="margin-right: 14px;">
+                            <div class="tabMenu js-tabMenu1">
+                                <span> Leisure Sports </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="destinations__tabSwiper__panel">
+                <div class="swiper js-tabSwiper-panel1 swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
+                    <div class="swiper-wrapper" id="swiper-wrapper-1102f3e876c2605d6" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
+                        <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7">
+                            <div class="destinations__tabSwiper__cont">
+                                <div class="destinations__tabSwiper__cont__list panel panel">
+                                    <ul id="crsList">
+                                        <li>
+                                            <a href="javascript:hdrdsltViewPopup(430003);" class="search__result__tour__item">
+                                                <div class="img">
+                                                    <img src="images/nt-03.png" class="Central">
+                                                    <img src="images/3037715_image2_1.jpg" class="Northwestern">
+                                                    <img src="images/Seoul Forest.jpg" class="Northeastern">
+                                                    <img src="images/Gocheok Sky Dome.jpg" class="Southwestern">
+                                                    <img src="images/2386103_image2_1.jpg" class="Southeastern">
+                                                </div>
+                                                <div class="title">
+                                                    <div class="title">
+                                                        <p class="Central">N Seoul Tower (남산서울타워)</p>
+                                                        <p class="Northwestern">Hongdae (Hongik University Street) (홍대)</p>
+                                                        <p class="Northeastern">Seoul Forest (서울숲)</p>
+                                                        <p class="Southwestern">Gocheok Sky Dome (고척 스카이돔)</p>
+                                                        <p class="Southeastern">Hallyu K-Star Road (한류스타거리 K-STAR ROAD)</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:hdrdsltViewPopup(430003);" class="search__result__tour__item">
+                                                    <div class="img">
+                                                        <img src="images/The War Memorial of Korea.jpg" class="Central">
+                                                        <img src="images/World Cup Park.jpg" class="Northwestern">
+                                                        <img src="images/Seongsu-dong Cafe Street.jpg" class="Northeastern">
+                                                        <img src="images/Boramae Park.jpg" class="Southwestern">
+                                                        <img src="images/Lotte World.jpg" class="Southeastern">
+                                                    </div>
+                                                    <div class="title">
+                                                        <p class="Central">The War Memorial of Korea (전쟁기념관)</p>
+                                                        <p class="Northwestern">World Cup Park (월드컵공원)</p>
+                                                        <p class="Northeastern">Seongsu-dong Cafe Street (성수동 카페거리)</p>
+                                                        <p class="Southwestern">Boramae Park (보라매공원)</p>
+                                                        <p class="Southeastern">Lotte World(롯데월드 어드벤처)</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:hdrdsltViewPopup(430003);" class="search__result__tour__item">
+                                                    <div class="img">
+                                                        <img src="images/National Museum of Korea.jpg" class="Central">
+                                                        <img src="images/Dongnimmun Gate.png" class="Northwestern">
+                                                        <img src="images/Seoul Children's Grand Park.JPG" class="Northeastern">
+                                                        <img src="images/Seoul Botanic Park.jpg" class="Southwestern">
+                                                        <img src="images/Seoul Arts Center.jpg" class="Southeastern">
+                                                    </div>
+                                                    <div class="title">
+                                                        <p class="Central">National Museum of Korea (국립중앙박물관)</p>
+                                                        <p class="Northwestern">Dongnimmun Gate (독립문)</p>
+                                                        <p class="Northeastern">Seoul Children's Grand Park (서울어린이대공원)</p>
+                                                        <p class="Southwestern">Seoul Botanic Park (서울식물원)</p>
+                                                        <p class="Southeastern">Seoul Arts Center (예술의전당)</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="section2" class="parallax__item">
+        <h4 class="parallax__item__num" style="margin-bottom: 50px;">Food</h4>
+        <div class="section-inner" style="margin-bottom:85px;">
+            <ul class="react-multi-carousel-track">
+                <li data-index="0" aria-hidden="false" class="parallax__item__img i1" style="flex: 1 1 auto; position: relative; width: 15%;">
+                    <div class="animated" style="animation-duration: 1s;">
+                        <div class="card-padding">
+                            <div class="card--item__img">
+                                <div class="card-box">
+                                    <a href="#" class title target aria-label="1. Enjoy a Taste of Korea">
+                                        <div class="empty-placeholder">
+                                            <picture>
+                                                <source media="(min-width: 768px)" srcset="images/F_001_1.jpg">
+                                                <img src="images/F_001_1.jpg" alt="Bibimbap">
+                                            </picture>
+                                        </div>
+                                    </a>
+                                    <div class="c-body">
+                                        <a href="#" class title target aria-label="1. Enjoy a Taste of Korea">
+                                            <h2 class="h4" data-cy="general-card-image-title">Bibimbap</h2>
+                                        </a>
+                                        <p data-cy="general-card-image-description">Savour specials from the city’s top restaurants in Seoul.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-index="0" aria-hidden="false" class="parallax__item__img i2" style="flex: 1 1 auto; position: relative; width: 15%;">
+                    <div class="animated" style="animation-duration: 1s;">
+                        <div class="card-padding">
+                            <div class="card--item__img">
+                                <div class="card-box">
+                                    <a href="#" class title target aria-label="1. Enjoy a Taste of Korea">
+                                        <div class="empty-placeholder">
+                                            <picture>
+                                                <source media="(min-width: 768px)" srcset="images/img_kfood_view_051.png">
+                                                <img src="images/img_kfood_view_051.png" alt="Kimchijjigae">
+                                            </picture>
+                                        </div>
+                                    </a>
+                                    <div class="c-body">  
+                                        <a href="#" class title target aria-label="1. Enjoy a Taste of Korea">
+                                            <h2 class="h4" data-cy="general-card-image-title">Kimchijjigae</h2>
+                                        </a>
+                                        <p data-cy="general-card-image-description">Savour specials from the city’s top restaurants in Seoul.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-index="0" aria-hidden="false" class="parallax__item__img i3" style="flex: 1 1 auto; position: relative; width: 15%;">
+                    <div class="animated" style="animation-duration: 1s;">
+                        <div class="card-padding">
+                            <div class="card--item__img">
+                                <div class="card-box">
+                                    <a href="#" class title target aria-label="1. Enjoy a Taste of Korea">
+                                        <div class="empty-placeholder">
+                                            <picture>
+                                                <source media="(min-width: 768px)" srcset="images/img_kfood_view_121.jpg">
+                                                <img src="images/img_kfood_view_121.jpg" alt="Ganjanggejang">
+                                            </picture>
+                                        </div>
+                                    </a>
+                                    <div class="c-body">
+                                        <a href="#" class title target aria-label="1. Enjoy a Taste of Korea">
+                                            <h2 class="h4" data-cy="general-card-image-title">Ganjanggejang</h2>
+                                        </a>
+                                        <p data-cy="general-card-image-description">Savour specials from the city’s top restaurants in Seoul.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-index="0" aria-hidden="false" class="react-multi-carousel-item react-multi-carousel-item--active parallax__item__img i4" style="flex: 1 1 auto; position: relative; width: 15%;">
+                    <div class="animated animate__fadeInUp" style="animation-duration: 1s;">
+                        <div class="card-padding i1v3sxw0 l1qtg5n7 undefined csldt9d">
+                            <div class="card--item__img" data-cy="general-card-image" style="--general-card-image-background-color: #035E88; --general-card-image-background-active-color: #004565; --general-card-image-color: #fff;">
+                                <div class="card-box theme-contrast">
+                                    <a href="#" class title target aria-label="1. Enjoy a Taste of Korea">
+                                        <div class="empty-placeholder s17v4aoz" style="--s17v4aoz-0: unset; --s17v4aoz-1: unset; --s17v4aoz-2: unset; --s17v4aoz-3: unset; --s17v4aoz-4: 75%;">
+                                            <picture class="p1h540cx a1rjuo98 null empty-placeholder--hover">
+                                                <source media="(min-width: 768px)" srcset="images/20230711162724158.jpg">
+                                                <img src="images/images/20230711162724158.jpg" alt="Taste of Korea">
+                                            </picture>
+                                        </div>
+                                    </a>
+                                    <div class="c-body">
+                                        <a href="#" class title target aria-label="1. Enjoy a Taste of Korea">
+                                            <h2 class="h4" data-cy="general-card-image-title">Haemullamyeon</h2>
+                                        </a>
+                                        <p data-cy="general-card-image-description">Savour specials from the city’s top restaurants in Seoul.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="section3" class="parallax__item" style="color:black; flex-direction: column;">
+        <!--4. 지역 내 관련 전시/공연/축제/행사 안내(https://english.visitkorea.or.kr/svc/thingsToDo/events/festivals.do?menuSn=228)
+        https://english.visitkorea.or.kr/svc/planYourTravel/travelNews/travelNewsList.do?menuSn=177
+        -->
+        <h4>Festivals / Exhibition / Events</h4>
+        <div class="article-list-slide">
+            <ul class="article-list">
+                <li class="item">
+                    <a href="events/2024-Luminarie/KOPxltb2s" target="_self" title="페이지 이동">
+                        <div class="thumb" style="background-image:url(images/event1.png)">
+                            <img src="images/event1.png" alt="호수의 가을과 겨울, 그리고 루미나리에">
+                        </div>
+                        <div class="infor-element">
+                            <div class="infor-element-inner">
+                                <span class="title">Autumn and Winter of the lake and the Luminaries</span>
+                                <span class="small-text text-dot-d">2024.10.25 ~ 2025.02.28</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="exhibition/2024-mtmh/KOP8pkdcm" target="_self" title="페이지 이동">
+                        <div class="thumb" style="background-image:url(images/1025180013776-f9c9c2ba5bdc4cbebae23686a90e605b.jpg)">
+                            <img src="images/1025180013776-f9c9c2ba5bdc4cbebae23686a90e605b.jpg" alt="나의 보물, 나의 유산">
+                        </div>
+                        <div class="infor-element">
+                            <div class="infor-element-inner">
+                                <span class="title">My Treasures, My Heritage</span>
+                                <span class="small-text text-dot-d">2024.10.25 ~ 2025.03.16</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="exhibition/2024-mtmh/KOP8pkdcm" target="_self" title="페이지 이동">
+                        <div class="thumb" style="background-image:url(images/1025180013776-f9c9c2ba5bdc4cbebae23686a90e605b.jpg)">
+                            <img src="images/0805114448271-9d80fb31abef49de96ab9cd8e7aea94b.jpg" alt="나의 보물, 나의 유산">
+                        </div>
+                        <div class="infor-element">
+                            <div class="infor-element-inner">
+                                <span class="title">A Stroll Through Records: Seoul’s Parks</span>
+                                <span class="small-text text-dot-d">2023.12.01 ~ 2026.09.29</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="exhibition/2024-mtmh/KOP8pkdcm" target="_self" title="페이지 이동">
+                        <div class="thumb" style="background-image:url(images/1025180013776-f9c9c2ba5bdc4cbebae23686a90e605b.jpg)">
+                            <img src="images/0730162809270-2e79ff013e6c47ce8e388a0fcfedc1e5.jpg" alt="나의 보물, 나의 유산">
+                        </div>
+                        <div class="infor-element">
+                            <div class="infor-element-inner">
+                                <span class="title">K-Food Festival Knock Knock</span>
+                                <span class="small-text text-dot-d">2024.05.29 ~ 2025.05.31</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="section4" class="parallax__item">
+        <h4 class="parallax__item__num" style="margin-bottom: 50px;">Plan Ahead</h4>
+        <div class="section-inner">
+            <ul class="react-multi-carousel-track">
+                <li data-index="0" aria-hidden="false" class="parallax__item__img i1" style="flex: 1 1 auto; position: relative; width: 15%;">
+                    <div class="animated" style="animation-duration: 1s;">
+                        <div class="card-padding">
+                            <div class="card--item__img" data-cy="general-card-image">
+                                <div class="card-box">
+                                    <a href="https://english.visitseoul.net/Visa/" class title target aria-label="1. Enjoy a Taste of Korea">
+                                        <div class="empty-placeholder">
+                                            <picture>
+                                                <source media="(min-width: 768px)" srcset="images/visa.png">
+                                                <img src="images/visa.png" alt="Taste of Korea">
+                                            </picture>
+                                        </div>
+                                    </a>
+                                    <div class="c-body">
+                                        <a href="https://english.visitseoul.net/Visa/" class title target aria-label="1. Enjoy a Taste of Korea">
+                                            <h2 class="h4" data-cy="general-card-image-title">Visa Guide</h2>
+                                        </a>
+                                        <p data-cy="general-card-image-description">All You Need to Know about Getting to Seoul.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-index="0" aria-hidden="false" class="parallax__item__img i2" style="flex: 1 1 auto; position: relative; width: 15%;">
+                    <div class="animated" style="animation-duration: 1s;">
+                        <div class="card-padding">
+                            <div class="card--item__img" data-cy="general-card-image">
+                                <div class="card-box">
+                                    <a href="https://english.visitseoul.net/Getting-to-seoul" class title target aria-label="1. Enjoy a Taste of Korea">
+                                        <div class="empty-placeholder">
+                                            <picture>
+                                                <source media="(min-width: 768px)" srcset="images/transportation.png">
+                                                <img src="images/transportation.png" alt="Taste of Korea">
+                                            </picture>
+                                        </div>
+                                    </a>
+                                    <div class="c-body">
+                                        <a href="https://english.visitseoul.net/Getting-to-seoul" class title target aria-label="1. Enjoy a Taste of Korea">
+                                            <h2 class="h4" data-cy="general-card-image-title">Transportation</h2>
+                                        </a>
+                                        <p data-cy="general-card-image-description">Various Transportation Information.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-index="0" aria-hidden="false" class="parallax__item__img i3" style="flex: 1 1 auto; position: relative; width: 15%;">
+                    <div class="animated" style="animation-duration: 1s;">
+                        <div class="card-padding">
+                            <div class="card--item__img">
+                                <div class="card-box theme-contrast">
+                                    <a href="https://english.visitseoul.net/Accommodation/view/306128" class title target aria-label="1. Enjoy a Taste of Korea">
+                                        <div class="empty-placeholder">
+                                            <picture>
+                                                <source media="(min-width: 768px)" srcset="images/Accommodation.jpg">
+                                                <img src="images/Accommodation.jpg" alt="Taste of Korea">
+                                            </picture>
+                                        </div>
+                                    </a>
+                                    <div class="c-body">
+                                        <a href="https://english.visitseoul.net/Accommodation/view/306128" class title target aria-label="1. Enjoy a Taste of Korea">
+                                            <h2 class="h4" data-cy="general-card-image-title">Accommodation</h2>
+                                        </a>
+                                        <p data-cy="general-card-image-description">Hotels and Guesthouses are ready to welcome guests!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-index="0" aria-hidden="false" class="parallax__item__img i4" style="flex: 1 1 auto; position: relative; width: 15%;">
+                    <div class="animated" style="animation-duration: 1s;">
+                        <div class="card-padding">
+                            <div class="card--item__img">
+                                <div class="card-box">
+                                    <a href="https://english.visitseoul.net/map-guide-book" class title target aria-label="1. Enjoy a Taste of Korea">
+                                        <div class="empty-placeholder">
+                                            <picture>
+                                                <source media="(min-width: 768px)" srcset="images/guidebook.png">
+                                                <img src="images/guidebook.png" alt="Taste of Korea">
+                                            </picture>
+                                        </div>
+                                    </a>
+                                    <div class="c-body">
+                                        <a href="https://english.visitseoul.net/map-guide-book" class title target aria-label="1. Enjoy a Taste of Korea">
+                                            <h2 class="h4" data-cy="general-card-image-title">Guidebooks & Maps</h2>
+                                        </a>
+                                        <p data-cy="general-card-image-description">Savour specials from the city’s top restaurants in Seoul.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-inner flex">
+            <div class="flex">
+                <img src="images/ginkgo_leaf_white.svg" style="height:120px; padding-right:50px;">
+                <div>
+                    <div class="flex">
+                        <a href="#"><img src="images/SLogo-w.svg" style="height:20px;"></a>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Employment</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">Advertising</a></li>
+                            <li><a href="#">Privacy & Terms</a></li>
+                        </ul>
+                    </div>
+                    <p>
+                        <span class="font14 bold">The official Seoul travel app </span>
+                        <a href="#"><span class="font14 ccc">App Store</span><img src="images/External_link_font_awesome_ccc.svg" style="height:12px"></a>
+                        <span class="font14 bold"></span>
+                        <a href="#"><span class="font14 ccc">Google Play</span><img src="images/External_link_font_awesome_ccc.svg" style="height:12px"></a>
+                    </p>
+                    <p>
+                        <span class="font14 bold">Inquiry </span>
+                        <span class="font14 ccc">staff@seoulspot.com</span>
+                        <span class="font14 bold"></span>
+                        <span class="font14 bold">Operating Hours/Time</span>
+                        <span class="font14 ccc">Mon - Fri, 9 a.m. - 6 p.m. (KST)</span>
+                    </p>
+                    <p>
+                        <span class="font14">Copyright © 2025 seoulspot.com All Rights Reserved.</span>
+                    </p>
+                </div>
+            </div>
+            <img src="images/magpie_white.svg" style="height:120px;">
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        //이미지 순차적으로 나오기
+        window.addEventListener("scroll", function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let elements = document.querySelectorAll(".Central");
+            let elements2 = document.querySelectorAll(".Central2");
+
+            elements.forEach(element => {
+                if (scrollTop >= 12000) {
+                    element.style.display = "none";
+                    element.style.transition = "all 0.3s ease";
+                    element.style.opacity = "0";
+                    element.style.transform = "translateY(10px)"; // 아래로 살짝 이동하며 사라지는 효과
+                    element.style.visibility = "hidden";
+                } else {
+                    element.style.display = "block";
+                    element.style.opacity = "1";
+                    element.style.transform = "translateY(0)";
+                    element.style.visibility = "visible";
+                }
+            });
+            elements2.forEach(element2 => {
+                if (scrollTop >= 12000) {
+                    element2.style.transition = "all 0.3s ease";
+                    element2.style.opacity = "0";
+                } else {
+                    element2.style.opacity = "1";
+                }
+            });
+        });
+
+        window.addEventListener("scroll", function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let elements = document.querySelectorAll(".Northwestern");
+            let elements2 = document.querySelectorAll(".Northwestern2");
+
+            elements.forEach(element => {
+                if (scrollTop >= 12000 && scrollTop < 13000) {
+                    element.style.display = "block";
+                    element.style.transition = "all 0.3s ease";
+                    element.style.opacity = "1";
+                } else {
+                    element.style.display = "none";
+                    element.style.opacity = "0";
+                }
+            });
+            elements2.forEach(element2 => {
+                if (scrollTop >= 12000 && scrollTop < 13000) {
+                    element2.style.transition = "all 0.3s ease";
+                    element2.style.opacity = "1";
+                } else {
+                    element2.style.opacity = "0";
+                }
+            });
+        });
+
+        window.addEventListener("scroll", function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let elements = document.querySelectorAll(".Northeastern");
+            let elements2 = document.querySelectorAll(".Northeastern2");
+
+            elements.forEach(element => {
+                if (scrollTop >= 13000 && scrollTop < 14000) {
+                    element.style.display = "block";
+                } else {
+                    element.style.display = "none";
+                }
+            });
+            elements2.forEach(element2 => {
+                if (scrollTop >= 13000 && scrollTop < 14000) {
+                    element2.style.transition = "all 0.3s ease";
+                    element2.style.opacity = "1";
+                } else {
+                    element2.style.opacity = "0";
+                }
+            });
+        });
+
+        window.addEventListener("scroll", function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let elements = document.querySelectorAll(".Southwestern");
+            let elements2 = document.querySelectorAll(".Southwestern2");
+
+            elements.forEach(element => {
+                if (scrollTop >= 14000 && scrollTop < 15000) {
+                    element.style.display = "block";
+                } else {
+                    element.style.display = "none";
+                }
+            });
+            elements2.forEach(element2 => {
+                if (scrollTop >= 14000 && scrollTop < 15000) {
+                    element2.style.transition = "all 0.3s ease";
+                    element2.style.opacity = "1";
+                } else {
+                    element2.style.opacity = "0";
+                }
+            });
+        });
+
+        window.addEventListener("scroll", function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let elements = document.querySelectorAll(".Southeastern");
+            let elements2 = document.querySelectorAll(".Southeastern2");
+
+            elements.forEach(element => {
+                if (scrollTop >= 15000) {
+                    element.style.display = "block";
+                } else {
+                    element.style.display = "none";
+                }
+            });
+            elements2.forEach(element2 => {
+                if (scrollTop >= 15000) {
+                    element2.style.transition = "all 0.3s ease";
+                    element2.style.opacity = "1";
+                } else {
+                    element2.style.opacity = "0";
+                }
+            });
+        });
+
+        gsap.registerPlugin(ScrollTrigger);
+
+
+        ScrollTrigger.create({
+            trigger: ".Northwestern", // 대상 요소
+            start: "12000 top", // 스크롤 12000px에 도달하면 실행
+            end: "16000 top", // 16000px에서 다시 원래대로
+            toggleClass: "active", // active 클래스를 추가 및 제거
+            markers: true // 디버깅용 마커 (실제 적용 시 삭제 가능)
+        });
+
+        const ani1 = gsap.timeline();
+        ani1.from("#section1", {autoAlpha: 1})
+
+        ScrollTrigger.create({
+            animation: ani1,
+            trigger: "#section1",
+            start: "top top",
+            end: "+=5000",
+            scrub: true,
+            pin: true, 
+            anticipatePin: 1,
+            markers: true
+        });
+
+        const ani2 = gsap.timeline();
+        ani2.from("#section2 .i1", {y: -100, autoAlpha:0, borderRadius: 200})
+            .from("#section2 .i2", {y: 100, autoAlpha:0, borderRadius: 200})
+            .from("#section2 .i3", {y: -100, autoAlpha:0, borderRadius: 200})
+            .from("#section2 .i4", {y: -100, autoAlpha:0, borderRadius: 200})
+
+        ScrollTrigger.create({
+            animation: ani2,
+            trigger: "#section2",
+            start: "top top",
+            end: "+=2000",
+            scrub: true,
+            pin: true, 
+            anticipatePin: 1,
+            markers: true
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+    <script type="text/javascript">
+        let s = skrollr.init();
+
+        window.addEventListener("scroll", () =>{
+            let scrollTop = window.pageYOffset || window.scrollY;
+
+            document.querySelector(".scrollTop").innerText = scrollTop;
+        });
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js'></script>
+    <script src="script.js"></script>    
+</body>
+</html>
