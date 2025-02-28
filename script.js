@@ -5,7 +5,7 @@ const scrollHeight = scrollSection.clientHeight;
 const contentWidth = scrollContent.clientWidth;
 
 document.addEventListener('scroll', e => {
-  const scrolled = window.pageYOffset - 800;
+  const scrolled = window.pageYOffset - 1200;
   const sectionOffset = Math.abs(scrollSection.offsetTop - (scrolled));
   const notReachedBottom = parseInt(Math.max(0, scrollSection.getBoundingClientRect().bottom - window.innerHeight));
 
