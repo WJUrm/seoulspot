@@ -195,7 +195,7 @@ header ul li:first-child{padding-left:0px;}
 .section1-text p{
     margin-bottom:60px;
 }
-.section1-text button{
+.section1-text .section1_btn{
     display:flex; 
     width:150px; 
     height:150px; 
@@ -216,7 +216,7 @@ header ul li:first-child{padding-left:0px;}
     font-size:20px;
     padding-top:10px;
 }
-.section1-text button a{padding-top: 0px;}
+.section1-text .section1_btn a{padding-top: 0px;}
 #section1 .section-inner{margin-top:100px;}
 #section1 h3{margin-top:40px; font-size:40px;}
 #section1 .contents{
