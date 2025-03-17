@@ -15,7 +15,6 @@ li{list-style:none;}
 img {
     max-width: 100%;
     vertical-align: top;
-    -webkit-user-drag: none;
 }
 .bold{font-weight:bold !important;}
 .hidden, .Northwestern, .Northeastern, .Southwestern, .Southeastern{display:none;}
@@ -287,14 +286,11 @@ header ul li:first-child{padding-left:0px;}
     cursor: not-allowed;
 }
 .destinations__tabSwiper__cont__list .search__result__tour__item .title {
-    display: -webkit-box;
     max-height: 44px;
     font-size: 18px;
     font-weight: 600;
     line-height: 22px;
     /*overflow: hidden;*/
-    /*-webkit-line-clamp: 2;*/
-    -webkit-box-orient: vertical;
     margin-top: 14px;
 }
 .destinations__tabSwiper__menu .swiper-slide .tabMenu span {
