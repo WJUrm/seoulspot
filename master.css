@@ -537,7 +537,6 @@ footer li a:hover{color:white;}
         top: 0;
         left: 0;
         height: 100vh;
-        width: 100vw;
         overflow: hidden;
         }
         .horizontal-scroll__title{
@@ -588,4 +587,5 @@ footer li a:hover{color:white;}
         .extra-padding{
             width: 88%;
             margin: 0 auto;
+            max-width: 1400px;
         }
