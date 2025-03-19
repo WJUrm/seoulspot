@@ -166,16 +166,14 @@ document.querySelector(".scrollTop").innerText = window.scrollY;
 const scrollSection = document.querySelector('#related-events');
 const scrollContent = document.querySelector('.horizontal-scroll__content');
 
-const scrollHeight = scrollSection.clientHeight;
-const contentWidth = scrollContent.clientWidth;
-
-document.addEventListener('scroll', e => {
+document.addEventListener('scroll', () => {
   const scrolled = window.pageYOffset;
   const sectionOffset = Math.abs(scrollSection.offsetTop - (scrolled));
   const notReachedBottom = parseInt(Math.max(0, scrollSection.getBoundingClientRect().bottom - window.innerHeight));
   
   if (scrollSection.offsetTop <= scrolled && notReachedBottom) {
     gsap.to(scrollContent, {
-    x: -sectionOffset });
+      x: -sectionOffse
+    });
   }
 });
