@@ -38,6 +38,5 @@ const heroScene = new ScrollMagic.Scene({
   triggerHook: 0,
   duration: '40%' }).
 
-setTween(heroTween('.hero__background')).
 addIndicators({ name: "1" });
 //.addTo(controller);
