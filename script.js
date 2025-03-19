@@ -173,7 +173,7 @@ document.addEventListener('scroll', () => {
   
   if (scrollSection.offsetTop <= scrolled && notReachedBottom) {
     gsap.to(scrollContent, {
-      x: -sectionOffse
+      x: -sectionOffset
     });
   }
 });
