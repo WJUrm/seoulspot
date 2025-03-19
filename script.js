@@ -170,7 +170,7 @@ const scrollHeight = scrollSection.clientHeight;
 const contentWidth = scrollContent.clientWidth;
 
 document.addEventListener('scroll', e => {
-  const scrolled = window.pageYOffset - 1200;
+  const scrolled = window.pageYOffset;
   const sectionOffset = Math.abs(scrollSection.offsetTop - (scrolled));
   const notReachedBottom = parseInt(Math.max(0, scrollSection.getBoundingClientRect().bottom - window.innerHeight));
   
@@ -179,5 +179,3 @@ document.addEventListener('scroll', e => {
     x: -sectionOffset });
   }
 });
-
-const controller = new ScrollMagic.Controller();
