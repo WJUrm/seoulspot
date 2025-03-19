@@ -530,7 +530,7 @@ footer li a:hover{color:white;}
 
         .horizontal-scroll__section {
         position: relative;
-        height: 350vh;
+        height: 220vh;
         }
         .horizontal-scroll__wrapper {
         position: sticky;
