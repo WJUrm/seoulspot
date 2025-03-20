@@ -145,15 +145,15 @@ const ani2 = gsap.timeline();
 ani2.from("#section2 .i1", { y: -100, autoAlpha: 0, borderRadius: 200 })
 .from("#section2 .i2", { y: 100, autoAlpha: 0, borderRadius: 200 })
 .from("#section2 .i3", { y: -100, autoAlpha: 0, borderRadius: 200 })
-.from("#section2 .i4", { y: -100, autoAlpha: 0, borderRadius: 200 });
+.from("#section2 .i4", { y: 100, autoAlpha: 0, borderRadius: 200 });
 
 ScrollTrigger.create({
-animation: ani2,
-trigger: "#section2",
-start: "top top",
-end: "+=2000",
-scrub: true,
-pin: true
+  animation: ani2,
+  trigger: "#section2",
+  start: "top top",
+  end: "+=2000",
+  scrub: true,
+  pin: true
 });
 
 let s = skrollr.init();
